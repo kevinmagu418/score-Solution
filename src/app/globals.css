@@ -1,26 +1,29 @@
 @import "tailwindcss";
+@import 'animate.css';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Colors Only */
+  --primary-navy: #0B1D3A;
+  --primary-brown: #3B1F1B;
+  --accent-gold: #FFC107;
+  --neutral-beige: #EFEFEF;
+  --neutral-gray: #B0A89F;
+  --accent-orange: #D2691E;
+  --accent-olive: #6B8E23;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary-navy: var(--primary-navy);
+  --color-primary-brown: var(--primary-brown);
+  --color-accent-gold: var(--accent-gold);
+  --color-neutral-beige: var(--neutral-beige);
+  --color-neutral-gray: var(--neutral-gray);
+  --color-accent-orange: var(--accent-orange);
+  --color-accent-olive: var(--accent-olive);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-primary-navy);
+  color: var(--color-neutral-beige);
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
