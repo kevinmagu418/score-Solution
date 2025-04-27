@@ -120,7 +120,7 @@ export default function ServicesPage() {
       layout="fill"
       objectFit="cover"
       quality={85}
-      className="opacity-30"
+     className="opacity-30"
       loading="lazy"
     />
   </div>

@@ -16,7 +16,7 @@ export default function AboutHome() {
     >
       {/* Background Image */}
       <div className="absolute inset-0">
-        <Image
+      <Image
           src="/nairobi2.jpeg"
           alt="Nairobi Prehistoric Site"
           fill
@@ -25,7 +25,7 @@ export default function AboutHome() {
           priority={false}
           loading="lazy"
           sizes="100vw"
-          className="z-0"
+          className="opacity-40"
         />
       </div>
 
