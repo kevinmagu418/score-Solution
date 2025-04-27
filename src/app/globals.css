@@ -3,7 +3,7 @@
 
 :root {
   /* Brand Colors Only */
-  --primary-navy: #0B1D3A;
+  
   --primary-brown: #3B1F1B;
   --accent-gold: #FFC107;
   --neutral-beige: #EFEFEF;
@@ -13,7 +13,7 @@
 }
 
 @theme inline {
-  --color-primary-navy: var(--primary-navy);
+  
   --color-primary-brown: var(--primary-brown);
   --color-accent-gold: var(--accent-gold);
   --color-neutral-beige: var(--neutral-beige);
@@ -23,7 +23,7 @@
 }
 
 body {
-  background: var(--color-primary-navy);
+  background: var(--color-neutral-gray);
   color: var(--color-neutral-beige);
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }

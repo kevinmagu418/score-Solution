@@ -12,14 +12,7 @@ export const metadata = {
       description: 'Get in touch with Score Solutions for expert immigration services in Kenya. Contact us for visa applications, e-passports, work permits, and more.',
       url: 'https://www.scoresolutions.com/contact',
       siteName: 'Score Solutions',
-      images: [
-        {
-          url: 'https://www.scoresolutions.com/images/contact-banner.png', // Update this image URL as needed
-          width: 1200,
-          height: 630,
-          alt: 'Contact Us - Score Solutions Immigration',
-        },
-      ],
+     
     },
     twitter: {
       card: 'summary_large_image',

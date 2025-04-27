@@ -1,7 +1,7 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 import {
   Business,
   History,
@@ -9,195 +9,253 @@ import {
   WorkspacePremium,
   GppGood,
   Diversity3,
-  ConnectWithoutContact
-} from '@mui/icons-material';
+  ConnectWithoutContact,
+} from "@mui/icons-material";
 
 const fadeIn = (delay = 0) => ({
   hidden: { opacity: 0, y: 40 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, delay }
-  }
+    transition: { duration: 0.8, delay },
+  },
 });
+
+const bounceIcon = {
+  hidden: { scale: 0.8, opacity: 0 },
+  show: { scale: 1, opacity: 1, transition: { type: "spring", stiffness: 300 } },
+};
+
+const staggerContainer = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
 
 const AboutUs = () => {
   return (
     <div className="min-h-screen bg-[var(--color-neutral-beige)]">
+      
       {/* Hero Section */}
-      <motion.div
-        variants={fadeIn(0.2)}
+      <motion.section
+  variants={fadeIn(0.2)}
+  initial="hidden"
+  animate="show"
+  className="relative bg-[var(--color-primary-brown)] text-[var(--color-neutral-beige)] py-32 px-4 sm:px-6 lg:px-8 text-center overflow-hidden"
+>
+  {/* Background Image */}
+  <div className="absolute inset-0">
+    <img
+      src="nairobi.jpeg"  // <-- Replace with your image path
+      alt="Immigration Services"
+      className="w-full h-full object-cover opacity-40"
+      loading="lazy"
+    />
+    <div className="absolute inset-0 bg-black opacity-50"></div> {/* Dark overlay */}
+  </div>
+
+  {/* Content */}
+  <div className="relative z-10 max-w-7xl mx-auto">
+    <motion.h1 variants={fadeIn(0.4)} className="text-4xl md:text-5xl font-bold mb-6">
+      About Score Solutions
+    </motion.h1>
+    <motion.p variants={fadeIn(0.6)} className="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
+      Your trusted partner for immigration services in Kenya and beyond.
+    </motion.p>
+    <motion.div variants={fadeIn(0.8)}>
+      <button className="bg-[var(--color-accent-orange)] hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition">
+        Learn More
+      </button>
+    </motion.div>
+  </div>
+</motion.section>
+
+
+      {/* Management Team */}
+      <motion.section
+        variants={fadeIn(0.3)}
         initial="hidden"
-        animate="show"
-        className="relative bg-[var(--color-primary-brown)] text-[var(--color-neutral-beige)] py-20 px-4 sm:px-6 lg:px-8"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="bg-white py-20 px-4 sm:px-6 lg:px-8"
       >
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">About Score Solutions</h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-            Your trusted partner for immigration services in Kenya and beyond.
-          </p>
+          <motion.h2 variants={fadeIn(0.4)} className="text-3xl font-bold text-[var(--color-primary-brown)] mb-12 flex justify-center items-center gap-2">
+            <Groups className="text-[var(--color-accent-orange)]" fontSize="large" />
+            Our Management Team
+          </motion.h2>
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid md:grid-cols-3 gap-12">
+            {[
+              {
+                name: "Beatrice Omil",
+                position: "Managing Director",
+                description: "Bachelor of Commerce (Finance) from UoN and a Diploma in Business Management.",
+                image: "beatrice.jpeg",
+              },
+              {
+                name: "Allan Omballa",
+                position: "General Manager",
+                description: "Bachelor of Commerce (Accounting) from Moi University. Expertise in Taxation and Business Operations.",
+                image: "/allan.webp",
+              },
+              {
+                name: "Teddy Joshua Okotah",
+                position: "Operations Manager",
+                description: "Oversees back office operations, efficiency, and service delivery.",
+                image: "/okotah.avif",
+              },
+            ].map((member, index) => (
+              <motion.div
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.9 },
+                  show: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 200 } },
+                }}
+                className="bg-[var(--color-neutral-beige)] p-8 rounded-lg shadow-lg text-center"
+              >
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-32 h-32 mx-auto rounded-full mb-6 object-cover"
+                />
+                <h3 className="text-xl font-semibold text-[var(--color-primary-brown)]">{member.name}</h3>
+                <p className="text-lg text-gray-700 font-bold mb-2">{member.position}</p>
+                <p className="text-gray-600">{member.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
-      </motion.div>
+      </motion.section>
 
-      {/* About Section - Who We Are */}
+      {/* Who We Are */}
       <motion.div
         variants={fadeIn(0.4)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="bg-[var(--color-primary-navy)] text-white py-16"
+        className="bg-[var(--color-primary-brown)] text-black py-20"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl font-bold mb-6 flex items-center">
-              <Business className="text-[#0a0a0a] mr-2" fontSize="large" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <motion.h2 variants={fadeIn(0.5)} className="text-4xl font-bold flex justify-center items-center gap-2">
+              <Business className="text-[var(--color-accent-orange)]" fontSize="large" />
               Who We Are
-            </h2>
-            <p className="text-lg text-neutral-100 mb-6 font-medium">
+            </motion.h2>
+            <motion.p variants={fadeIn(0.6)} className="mt-6 text-lg md:text-xl text-neutral-200 max-w-3xl mx-auto font-medium">
               Score Solutions is an innovative and customer-focused service solutions provider incorporated under the Companies Act of Kenya in 2015.
-            </p>
-            <p className="text-lg text-neutral-100 font-medium">
-              We started as a small business in 2015 and have grown tremendously, expanding our services nationally and beyond Kenya's borders.
-            </p>
+            </motion.p>
+            <motion.p variants={fadeIn(0.7)} className="mt-4 text-lg md:text-xl text-neutral-200 max-w-3xl mx-auto font-medium">
+              We started as a small business and have expanded our services nationally and beyond Kenya’s borders.
+            </motion.p>
           </div>
-          <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-md">s
-            <div className="mb-8">
-              <h3 className="text-xl font-semibold text-[var(--color-primary-brown)] mb-4 flex items-center">
-                <WorkspacePremium className="text-[var(--color-accent-gold)] mr-2" />
-                Our Vision
-              </h3>
-              <p className="text-gray-700 italic">
-                "To be the leading Immigration Services Solutions provider for Individuals, Groups and Corporate within the county and beyond Borders"
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-[var(--color-primary-brown)] mb-4 flex items-center">
-                <GppGood className="text-[var(--color-accent-gold)] mr-2" />
-                Our Mission
-              </h3>
-              <p className="text-gray-700 italic">
-                "To offer world class services to our clients to enable them to effectively and efficiently deliver on their objectives..."
-              </p>
-            </div>
-          </div>
-        </div>
-      </motion.div>
 
-      {/* Core Values Section */}
-      <motion.div
-        variants={fadeIn(0.6)}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8"
-      >
-        <h2 className="text-3xl font-bold text-[var(--color-primary-brown)] mb-12 text-center flex justify-center items-center gap-2">
-          <Diversity3 className="text-[var(--color-accent-gold)]" fontSize="large" />
-          Our Core Values
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              icon: <WorkspacePremium fontSize="large" className="text-[var(--color-accent-orange)]" />,
-              title: "Value Addition",
-              description:
-                "We consistently provide our clients with advice, services, and follow-up that add value."
-            },
-            {
-              icon: <Groups fontSize="large" className="text-[var(--color-accent-orange)]" />,
-              title: "Professionalism",
-              description:
-                "We attract, develop, and retain the best minds through continuous training."
-            },
-            {
-              icon: <GppGood fontSize="large" className="text-[var(--color-accent-orange)]" />,
-              title: "Integrity",
-              description:
-                "We conduct business operations consistent with high expectations of our clients."
-            },
-            {
-              icon: <ConnectWithoutContact fontSize="large" className="text-[var(--color-accent-orange)]" />,
-              title: "Lifetime Relationship",
-              description:
-                "We view client relationships as long-term partnerships with shared goals."
-            },
-            {
-              icon: <Diversity3 fontSize="large" className="text-[var(--color-accent-orange)]" />,
-              title: "Team Work",
-              description:
-                "We are one team with the same goals and ambitions, fostering a collaborative culture."
-            }
-          ].map((value, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
-            >
-              <div className="text-4xl mb-4">{value.icon}</div>
-              <h3 className="text-xl font-semibold text-[var(--color-primary-brown)] mb-3">{value.title}</h3>
-              <p className="text-gray-700">{value.description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* Management Team Section */}
-      <motion.div
-        variants={fadeIn(0.8)}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        className="bg-white py-16 px-4 sm:px-6 lg:px-8"
-      >
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-[var(--color-primary-brown)] mb-12 text-center flex justify-center items-center gap-2">
-            <Groups className="text-[var(--color-accent-gold)]" fontSize="large" />
-            Our Management Team
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          {/* Vision and Mission */}
+          <motion.div variants={staggerContainer} className="grid md:grid-cols-2 gap-12 mt-16">
             {[
               {
-                name: "Beatrice Omil",
-                position: "Managing Director",
-                description:
-                  "Bachelor of Commerce (Finance) from UoN and a Diploma in Business Management.",
-                image: "beatrice.jpeg"
+                Icon: WorkspacePremium,
+                title: "Our Vision",
+                text: "To be the leading Immigration Services Solutions provider for Individuals, Groups, and Corporates within the country and beyond borders.",
               },
               {
-                name: "Allan Omballa",
-                position: "General Manager",
-                description:
-                  "Bachelor of Commerce (Accounting) from Moi University. Expertise in Taxation and Business Operations.",
-                image: "/allan.webp"
+                Icon: GppGood,
+                title: "Our Mission",
+                text: "To offer world-class services to our clients to enable them to effectively and efficiently deliver on their objectives.",
               },
-              {
-                name: "Teddy Joshua Okotah",
-                position: "Operations Manager",
-                description:
-                  "Oversees back office operations, efficiency, and service delivery.",
-                image: "/okotah.avif"
-              }
-            ].map((member, index) => (
+            ].map((item, idx) => (
               <motion.div
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-                className="bg-[var(--color-neutral-beige)] p-6 rounded-lg shadow-md text-center"
+                key={idx}
+                variants={bounceIcon}
+                className="flex flex-col items-center text-center"
               >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-32 h-32 mx-auto rounded-full mb-4 object-cover"
-                />
-                <h3 className="text-xl font-semibold text-[var(--color-primary-brown)] mb-2">{member.name}</h3>
-                <p className="text-lg text-gray-700 font-bold mb-2">{member.position}</p>
-                <p className="text-gray-700">{member.description}</p>
+                <item.Icon className="text-[var(--color-accent-orange)]" fontSize="large" />
+                <h3 className="mt-4 text-2xl font-semibold text-[var(--color-accent-orange)]">{item.title}</h3>
+                <p className="mt-4 text-lg italic text-neutral-100 max-w-md">{item.text}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </motion.div>
+
+      {/* Core Values */}
+<motion.section
+  variants={fadeIn(0.5)}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  className="py-20 px-4 sm:px-6 lg:px-8"
+>
+  <div className="max-w-7xl mx-auto text-center">
+    <h2 className="text-3xl font-bold text-[var(--color-primary-brown)] mb-12 flex justify-center items-center gap-2">
+      <Diversity3 className="text-[var(--color-accent-orange)]" fontSize="large" />
+      Our Core Values
+    </h2>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {[
+        {
+          image: "/value.png",
+          icon: <WorkspacePremium fontSize="large" className="text-[var(--color-accent-orange)]" />,
+          title: "Value Addition",
+          description: "We consistently provide our clients with advice, services, and follow-up that add value.",
+        },
+        {
+          image: "/professionalism.jpg",
+          icon: <Groups fontSize="large" className="text-[var(--color-accent-orange)]" />,
+          title: "Professionalism",
+          description: "We attract, develop, and retain the best minds through continuous training.",
+        },
+        {
+          image: "/integrity.jpeg",
+          icon: <GppGood fontSize="large" className="text-[var(--color-accent-orange)]" />,
+          title: "Integrity",
+          description: "We conduct business operations consistent with the high expectations of our clients.",
+        },
+        {
+          image: "/lifetime.jpeg",
+          icon: <ConnectWithoutContact fontSize="large" className="text-[var(--color-accent-orange)]" />,
+          title: "Lifetime Relationship",
+          description: "We view client relationships as long-term partnerships with shared goals.",
+        },
+        {
+          image: "/team.webp",
+          icon: <Diversity3 fontSize="large" className="text-[var(--color-accent-orange)]" />,
+          title: "Teamwork",
+          description: "We are one team with the same goals and ambitions, fostering a collaborative culture.",
+        },
+      ].map((value, index) => (
+        <motion.div
+          key={index}
+          whileHover={{ scale: 1.05 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: index * 0.1 }}
+          className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow flex flex-col items-center"
+        >
+          {/* Image */}
+          <motion.img
+            src={value.image}
+            alt={value.title}
+            loading="lazy"
+            className="w-full h-40 object-cover rounded-lg mb-4"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          />
+          {/* Icon */}
+          <div className="text-4xl mb-4">{value.icon}</div>
+          {/* Title */}
+          <h3 className="text-xl font-semibold text-[var(--color-primary-brown)] mb-3">{value.title}</h3>
+          {/* Description */}
+          <p className="text-gray-700">{value.description}</p>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</motion.section>
+
+              
     </div>
   );
 };
