@@ -144,10 +144,10 @@ const AboutUs = () => {
               <Business className="text-[var(--color-accent-orange)]" fontSize="large" />
               Who We Are
             </motion.h2>
-            <motion.p variants={fadeIn(0.6)} className="mt-6 text-lg md:text-xl text-neutral-200 max-w-3xl mx-auto font-medium">
+            <motion.p variants={fadeIn(0.6)} className="mt-6 text-lg md:text-xl text-[var(--color-neutral-gray)] max-w-3xl mx-auto font-medium">
               Score Solutions is an innovative and customer-focused service solutions provider incorporated under the Companies Act of Kenya in 2015.
             </motion.p>
-            <motion.p variants={fadeIn(0.7)} className="mt-4 text-lg md:text-xl text-neutral-200 max-w-3xl mx-auto font-medium">
+            <motion.p variants={fadeIn(0.7)} className="mt-4 text-lg md:text-xl text-[var(--color-neutral-gray)] max-w-3xl mx-auto font-medium">
               We started as a small business and have expanded our services nationally and beyond Kenya’s borders.
             </motion.p>
           </div>
@@ -173,7 +173,7 @@ const AboutUs = () => {
               >
                 <item.Icon className="text-[var(--color-accent-orange)]" fontSize="large" />
                 <h3 className="mt-4 text-2xl font-semibold text-[var(--color-accent-orange)]">{item.title}</h3>
-                <p className="mt-4 text-lg italic text-neutral-100 max-w-md">{item.text}</p>
+                <p className="mt-4 text-lg italic text-[var(--color-neutral-gray)] max-w-md">{item.text}</p>
               </motion.div>
             ))}
           </motion.div>
