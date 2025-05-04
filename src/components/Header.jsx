@@ -74,10 +74,13 @@ export default function Header() {
 
         {/* Navigation Links */}
         <nav
-          className={`absolute top-full left-0 w-full bg-[var(--score-blue)] lg:bg-transparent px-6 pb-6 lg:static lg:w-auto lg:flex lg:p-0 transition-all duration-300 ease-in-out ${
-            isOpen ? "block" : "hidden lg:block"
-          }`}
-        >
+  className={`absolute top-full left-0 w-full ${
+    isOpen ? "bg-[var(--neutral-beige)]" : ""
+  } lg:bg-transparent px-6 pb-6 lg:static lg:w-auto lg:flex lg:p-0 transition-all duration-300 ease-in-out ${
+    isOpen ? "block" : "hidden lg:block"
+  }`}
+>
+
           <ul className="flex flex-col lg:flex-row gap-y-4 lg:gap-y-0 lg:gap-x-8">
             {navLinks.map((navlink) => (
               <li key={navlink.name}>
