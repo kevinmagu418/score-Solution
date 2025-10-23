@@ -38,11 +38,11 @@ export default function Header() {
 
   return (
     <header className="bg-[var(--neutral-beige)] text-white shadow-lg sticky top-0 z-50">
-      <div className="container mx-auto flex justify-between items-center px-6 py-4">
+      <div className="container mx-auto flex justify-between items-center px-4 py-2 md:py-3">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/logo.png" // Make sure logo.png is inside the /public folder
+            src="/score.png" // Make sure logo.png is inside the /public folder
             alt="Score Solutions Logo"
             width={140} // adjust as needed
             height={140} // adjust as needed
@@ -58,15 +58,21 @@ export default function Header() {
             aria-label="Toggle navigation menu"
           >
             {isOpen ? (
-              <CloseIcon fontSize="large" className="text-[var(--primary-brown)]" />
+              <CloseIcon fontSize="medium" className="text-[var(--primary-brown)]" />
             ) : (
-              <MenuIcon fontSize="large" className="text-[var(--primary-brown)]" />
+              <MenuIcon fontSize="medium" className="text-[var(--primary-brown)]" />
             )}
           </button>
 
           {/* Tooltip Message */}
           {hasMounted && showTooltip && (
-            <div className="absolute top-10 right-2 bg-[var(--color-primary-navy)] text-white text-sm px-4 py-2 rounded-md shadow-md animate-fade-in w-[200px] sm:w-auto max-w-xs">
+
+
+<div
+    className="absolute top-10 right-2 bg-blue-950 text-white text-sm px-3 py-2 
+               shadow-lg animate-fade-in w-[220px] sm:w-auto max-w-xs 
+               border border-[var(--accent-gold)] rounded-none"
+  >
               Click here to navigate to pages
             </div>
           )}

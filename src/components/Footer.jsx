@@ -1,74 +1,113 @@
 "use client";
-import { Instagram, Twitter, LinkedIn, Facebook, YouTube, Email, Phone, Language } from "@mui/icons-material"; // Material Icons
+
+import { motion } from "framer-motion";
+import {
+  Instagram,
+  Twitter,
+  LinkedIn,
+  Facebook,
+  YouTube,
+  Email,
+  Phone,
+  Language,
+} from "@mui/icons-material";
 import PlaceIcon from "@mui/icons-material/Place";
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--neutral-gray)] text-black py-12 mt-16 w-full">
-      <div className="container mx-auto px-4 text-center text-sm space-y-10">
-
-        {/* Social Media Section */}
-        <div className="space-y-4">
-          <h2 className="text-xl font-bold text-gray-800">Follow Us on Social Media</h2>
-          <div className="flex justify-center gap-6">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--primary-brown)] transition-colors">
-              <Instagram fontSize="large" />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--primary-brown)] transition-colors">
-              <Twitter fontSize="large" />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--primary-brown)] transition-colors">
-              <LinkedIn fontSize="large" />
-            </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--primary-brown)] transition-colors">
-              <Facebook fontSize="large" />
-            </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--primary-brown)] transition-colors">
-              <YouTube fontSize="large" />
-            </a>
-          </div>
-        </div>
-
-        {/* Address Section */}
-        <div className="space-y-2">
-          <div className="flex justify-center items-center gap-2 text-gray-700">
-            <PlaceIcon fontSize="small" />
-            <span className="text-lg font-semibold">Nairobi, Kenya</span>
-          </div>
-          <p className="max-w-md mx-auto text-gray-700">
-            Kogo Plaza, Ground Floor, Mai Mahiu Road, P.O Box 55064-00100 Nairobi, Kenya
-          </p>
-        </div>
-
-        {/* Contact Section */}
-        <div className="space-y-4">
-          <h2 className="text-xl font-bold text-gray-800">Contact Us</h2>
-          <div className="flex flex-col items-center gap-2 text-gray-700">
-            <div className="flex items-center gap-2">
+    <footer className="bg-gradient-to-b from-[#FAF4EF] to-[#E8DFD7] text-[#2E2E2E] border-t border-[var(--accent-gold)] mt-0">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="max-w-5xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 text-sm"
+      >
+        {/* Contact Info */}
+        <div>
+          <h2 className="text-lg font-bold mb-4 text-[var(--primary-brown)]">
+            Get in Touch
+          </h2>
+          <ul className="space-y-3 text-gray-700">
+            <li className="flex items-center gap-2">
+              <PlaceIcon fontSize="small" />
+              <span className="text-sm">
+                Kogo Plaza, Ground Floor, Mai Mahiu Road, Nairobi
+              </span>
+            </li>
+            <li className="flex items-center gap-2">
               <Email fontSize="small" />
-              <a href="mailto:info@scoresolutions.com" className="hover:text-[var(--primary-brown)] transition-colors">
+              <a
+                href="mailto:info@scoresolutions.com"
+                className="hover:text-[var(--accent-gold)] transition-colors"
+              >
                 info@scoresolutions.com
               </a>
-            </div>
-            <div className="flex items-center gap-2">
+            </li>
+            <li className="flex items-center gap-2">
               <Phone fontSize="small" />
-              <span className="font-medium">+254 700058068, +254 713088058, +254 722 794468</span>
-            </div>
-            <div className="flex items-center gap-2">
+              <span>+254 700 058 068 / +254 713 088 058</span>
+            </li>
+            <li className="flex items-center gap-2">
               <Language fontSize="small" />
-              <a href="https://www.scoresolutions.com" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--primary-brown)] transition-colors">
+              <a
+                href="https://www.scoresolutions.co.ke"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[var(--accent-gold)] transition-colors"
+              >
                 www.scoresolutions.co.ke
               </a>
-            </div>
+            </li>
+          </ul>
+        </div>
+
+        {/* Social Media */}
+        <div>
+          <h2 className="text-lg font-bold mb-4 text-[var(--primary-brown)]">
+            Connect With Us
+          </h2>
+          <div className="flex gap-6 mb-6">
+            {[
+              { href: "https://instagram.com", icon: <Instagram /> },
+              { href: "https://twitter.com", icon: <Twitter /> },
+              { href: "https://linkedin.com", icon: <LinkedIn /> },
+              { href: "https://facebook.com", icon: <Facebook /> },
+              { href: "https://youtube.com", icon: <YouTube /> },
+            ].map((item, idx) => (
+              <motion.a
+                key={idx}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
+                className="text-gray-700 hover:text-[var(--primary-brown)] transition-transform"
+              >
+                {item.icon}
+              </motion.a>
+            ))}
           </div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="text-sm text-gray-600 leading-relaxed"
+          >
+            Follow us for immigration updates, news, and expert insights.
+          </motion.p>
         </div>
+      </motion.div>
 
-        {/* Copyright Section */}
-        <div className="text-gray-600 text-sm">
-          &copy; {new Date().getFullYear()} Score Solutions. All rights reserved.
-        </div>
-
-      </div>
+      {/* Bottom Copyright */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.3, duration: 0.6 }}
+        className="border-t border-[var(--accent-gold)] text-center py-6 text-xs text-gray-600"
+      >
+        &copy; {new Date().getFullYear()} Score Solutions. All rights reserved.
+      </motion.div>
     </footer>
   );
 }

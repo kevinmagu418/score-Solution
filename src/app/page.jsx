@@ -6,41 +6,13 @@ import { motion } from "framer-motion";
 import StatsSection from "@/components/Stats";
 import AboutHome from "@/components/abouthome";
 import HomeServices from "@/components/aboutservice";
+import HeroSection from "@/components/HeroSection";
+
 export default function HomePage() {
 
   return (
     <div>
-      {/* Hero Section */}
-      <motion.section
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="bg-[var(--color-primary-brown)] text-[var(--color-neutral-beige)] py-32 text-center"
-      >
-        <div className="container mx-auto">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6">
-            Your Trusted Partner for Immigration Services in Kenya
-          </h1>
-          <p className="text-lg sm:text-xl mb-6">
-            Navigating the complexities of Kenyan immigration with over 8 years of experience.
-          </p>
-          <div className="flex justify-center space-x-6">
-            <Link
-              href="/services"
-              className="inline-block px-6 py-3 text-lg bg-[var(--color-accent-orange)] text-black rounded-full hover:bg-opacity-90 transition"
-            >
-              Explore Services
-            </Link>
-
-            <Link
-              href="/contact"
-              className="inline-block px-6 py-3 text-lg border-2 border-[var(--color-accent-orange)] text-[var(--color-accent-gold)] rounded-full hover:bg-[var(--color-accent-gold)] hover:text-black transition"
-            >
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      </motion.section>
+      <HeroSection/>
 
       {/* Brief Intro Section */}
       <AboutHome/>

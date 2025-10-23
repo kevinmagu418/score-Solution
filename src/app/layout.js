@@ -41,7 +41,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} antialiased flex flex-col min-h-screen`}>
+      <body className={`${poppins.variable} antialiased flex flex-col min-h-screen` }style={{
+          background: "linear-gradient(to right, #7b2e22, #5a1f17, #3b150f)",
+        }}
+>
         <Header />
         <main className="flex-grow">
           {children}
