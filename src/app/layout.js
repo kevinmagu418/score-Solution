@@ -23,6 +23,10 @@ export const metadata = {
     "Study abroad Kenya",
     "Kenya immigration experts",
   ],
+
+  icons: {
+    icon: "/score.png",
+  },
   authors: [{ name: "Score Solution", url: "https://scoresolution.co.ke" }],
   creator: "Score Solution",
   publisher: "Score Solution",
