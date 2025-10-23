@@ -21,20 +21,6 @@ const navLinks = [
 export default function Header() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(true);
-  const [hasMounted, setHasMounted] = useState(false);
-
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
-
-  // Hide tooltip after 9 seconds
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowTooltip(false);
-    }, 9000);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <header className="bg-[var(--neutral-beige)] text-white shadow-lg sticky top-0 z-50">
@@ -42,10 +28,10 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/score.png" // Make sure logo.png is inside the /public folder
+            src="/score.png"
             alt="Score Solutions Logo"
-            width={140} // adjust as needed
-            height={140} // adjust as needed
+            width={140}
+            height={140}
             className="hover:opacity-80 transition-opacity"
           />
         </Link>
@@ -63,30 +49,16 @@ export default function Header() {
               <MenuIcon fontSize="medium" className="text-[var(--primary-brown)]" />
             )}
           </button>
-
-          {/* Tooltip Message */}
-          {hasMounted && showTooltip && (
-
-
-<div
-    className="absolute top-10 right-2 bg-blue-950 text-white text-sm px-3 py-2 
-               shadow-lg animate-fade-in w-[220px] sm:w-auto max-w-xs 
-               border border-[var(--accent-gold)] rounded-none"
-  >
-              Click here to navigate to pages
-            </div>
-          )}
         </div>
 
         {/* Navigation Links */}
         <nav
-  className={`absolute top-full left-0 w-full ${
-    isOpen ? "bg-[var(--neutral-beige)]" : ""
-  } lg:bg-transparent px-6 pb-6 lg:static lg:w-auto lg:flex lg:p-0 transition-all duration-300 ease-in-out ${
-    isOpen ? "block" : "hidden lg:block"
-  }`}
->
-
+          className={`absolute top-full left-0 w-full ${
+            isOpen ? "bg-[var(--neutral-beige)]" : ""
+          } lg:bg-transparent px-6 pb-6 lg:static lg:w-auto lg:flex lg:p-0 transition-all duration-300 ease-in-out ${
+            isOpen ? "block" : "hidden lg:block"
+          }`}
+        >
           <ul className="flex flex-col lg:flex-row gap-y-4 lg:gap-y-0 lg:gap-x-8">
             {navLinks.map((navlink) => (
               <li key={navlink.name}>
