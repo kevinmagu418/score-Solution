@@ -10,60 +10,66 @@ export default function ContactPage() {
 
   return (
     <div className="relative">
- <section className="relative overflow-hidden py-32 text-center text-white">
-        <div className="absolute inset-0">
-          <Image
-            src="/call.webp"
-            alt="Contact Background"
-            fill
-            style={{ objectFit: "cover", objectPosition: "center" }}
-            className="z-0"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/40"></div>
-        </div>
 
-        <motion.div
-          className="absolute top-[-50px] left-[-50px] w-72 h-72 rounded-full bg-white/20 blur-3xl"
-          animate={{ x: [0, 20, 0], y: [0, 20, 0] }}
-          transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-[-60px] right-[-60px] w-96 h-96 rounded-full bg-white/10 blur-3xl"
-          animate={{ x: [0, -30, 0], y: [0, -30, 0] }}
-          transition={{ repeat: Infinity, duration: 14, ease: "easeInOut" }}
-        />
+      <section className="relative overflow-hidden py-32 text-center text-white bg-gradient-to-b from-black via-[#1a1a1a] to-black">
+  {/* Background Image */}
+  <div className="absolute inset-0">
+    <Image
+      src="/call.webp"
+      alt="Contact Background"
+      fill
+      style={{ objectFit: "cover", objectPosition: "center" }}
+      className="z-0"
+      priority
+    />
+    {/* Gradient Overlay */}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+  </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="relative z-10 flex flex-col items-center justify-center"
-        >
-          <motion.img
-            src="/Gmail-logo.png"
-            alt="Gmail Logo"
-            className="w-20 h-20 mb-6"
-            animate={{ y: [0, -10, 0] }}
-            transition={{ repeat: Infinity, repeatType: "loop", duration: 1.2, ease: "easeInOut" }}
-            whileHover={{ scale: 1.1 }}
-          />
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ready to Start Your Journey?</h2>
-          <p className="text-lg sm:text-xl mb-8 max-w-xl">
-            Get in touch directly via email. Just click below and we’ll be ready to assist you immediately.
-          </p>
-          <motion.a
-            href="mailto:info@scoresolutions.co.ke"
-            className="inline-flex items-center px-8 py-4 bg-white text-[var(--color-primary-brown)] font-semibold rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-transform duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            
-          >
-            Email Us Now <Send fontSize="small" className="ml-2" />
-          </motion.a>
-        </motion.div>
-      </section>
-      
+  {/* Floating Blur Orbs */}
+  <motion.div
+    className="absolute top-[-50px] left-[-50px] w-72 h-72 rounded-full bg-white/20 blur-3xl"
+    animate={{ x: [0, 20, 0], y: [0, 20, 0] }}
+    transition={{ repeat: Infinity, duration: 12, ease: 'easeInOut' }}
+  />
+  <motion.div
+    className="absolute bottom-[-60px] right-[-60px] w-96 h-96 rounded-full bg-white/10 blur-3xl"
+    animate={{ x: [0, -30, 0], y: [0, -30, 0] }}
+    transition={{ repeat: Infinity, duration: 14, ease: 'easeInOut' }}
+  />
+
+  {/* Main Content */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+    className="relative z-10 flex flex-col items-center justify-center"
+  >
+    <motion.img
+      src="/Gmail-logo.png"
+      alt="Gmail Logo"
+      className="w-20 h-20 mb-6"
+      animate={{ y: [0, -10, 0] }}
+      transition={{ repeat: Infinity, repeatType: 'loop', duration: 1.2, ease: 'easeInOut' }}
+      whileHover={{ scale: 1.1 }}
+    />
+    <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+      Ready to Start Your Journey?
+    </h2>
+    <p className="text-lg sm:text-xl mb-8 max-w-xl">
+      Get in touch directly via email. Just click below and we’ll be ready to assist you immediately.
+    </p>
+    <motion.a
+      href="mailto:info@scoresolutions.co.ke"
+      className="inline-flex items-center px-8 py-4 bg-white text-[var(--color-primary-brown)] font-semibold rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-transform duration-300"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      Email Us Now <Send fontSize="small" className="ml-2" />
+    </motion.a>
+  </motion.div>
+</section>
+
       {/* Contact Info & Map */}
       <section
         id="contact-info"

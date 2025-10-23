@@ -147,7 +147,7 @@ export default function AboutUs() {
         <img
           src="/score.png"
           alt="Score Solutions Team"
-          className="w-full h-[400px] object-cover grayscale-[40%] sepia-[20%] rounded-sm"
+          className="w-full h-[300px] object-cover grayscale-[40%] sepia-[20%] rounded-sm"
         />
         <p className="absolute bottom-0 left-0 right-0 bg-[#fdfaf4]/90 text-center text-xs uppercase tracking-wide py-2 border-t border-[#3b2b20] italic">
           “The journey begins” — 2017

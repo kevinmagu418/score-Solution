@@ -80,7 +80,8 @@ export default function AboutHomeSplit() {
       </motion.div>
 
       {/* RIGHT SIDE: IMAGE */}
-<div className="relative flex-1 h-screen lg:h-auto min-h-[600px]">
+      <div className="relative flex-1 h-[60vh] sm:h-[70vh] lg:h-auto min-h-[400px] lg:min-h-[600px]">
+
   <motion.div style={{ y }} className="absolute inset-0 z-0">
     <Image
       src="/migration.webp"
